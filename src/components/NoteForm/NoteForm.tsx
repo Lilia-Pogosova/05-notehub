@@ -6,7 +6,7 @@ import { createNote, type  CreateNoteDto } from "../../services/noteService";
 import { TAGS, type NoteTag, type Note } from "../../types/note";
 import css from "./NoteForm.module.css";
 
-interface Props {
+interface NoteFormProps {
   onClose: () => void;
 }
 
@@ -26,7 +26,7 @@ const schema = Yup.object({
     .required("Required"),
 });
 
-export default function NoteForm({ onClose }: Props) {
+export default function NoteForm({ onClose }: NoteFormProps) {
   const queryClient = useQueryClient();
 
   const { mutateAsync, isPending, error } = useMutation<
